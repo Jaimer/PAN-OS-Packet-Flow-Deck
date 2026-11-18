@@ -1,0 +1,93 @@
+:root {
+  /* Core Surfaces */
+  --bg-canvas: #090e1a;
+  --bg-surface: #111827;
+  --bg-card: #1a2335;
+  --bg-elevated: #222d44;
+  --bg-input: #0d1424;
+
+  /* Text Hierarchy (WCAG AA >= 4.5:1) */
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-inverse: #090e1a;
+
+  /* Borders */
+  --border-subtle: #27344d;
+  --border-strong: #3b4e73;
+
+  /* Semantic Stage Colors */
+  --stage-ingress: #38bdf8;     /* Sky Blue - Per-packet network */
+  --stage-slowpath: #fbbf24;    /* Amber - Slowpath setup */
+  --stage-fastpath: #34d399;    /* Emerald - Fast Path */
+  --stage-appid: #a78bfa;       /* Violet - App-ID */
+  --stage-contentid: #e879f9;   /* Fuchsia - Content-ID */
+  --stage-egress: #22d3ee;      /* Cyan - Per-packet egress */
+  --stage-loopback: #fb923c;    /* Orange - Loop-back arcs */
+  --stage-drop: #f87171;        /* Red - Drop/Discard */
+  --stage-decrypt: #facc15;     /* Yellow - SSL/SSH Decrypt/Encrypt */
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Radii & Spacing */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-pill: 9999px;
+
+  /* Focus Ring */
+  --focus-ring: 0 0 0 3px rgba(56, 189, 248, 0.55);
+
+  /* Animation Speed Multiplier (overridden inline by JS speed control) */
+  --anim-duration: 500ms;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+code,
+pre,
+.mono {
+  font-family: var(--font-mono);
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

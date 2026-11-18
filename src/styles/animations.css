@@ -1,0 +1,89 @@
+@keyframes packetPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 6px currentColor);
+  }
+  50% {
+    transform: scale(1.12);
+    filter: drop-shadow(0 0 14px currentColor);
+  }
+}
+
+@keyframes dashFlow {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+
+@keyframes stageGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.45));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.85));
+  }
+}
+
+@keyframes slideEnter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-enter {
+  animation: slideEnter 220ms ease-out;
+}
+
+.flow-edge-active {
+  stroke-dasharray: 8 6;
+  animation: dashFlow 900ms linear infinite;
+}
+
+.flow-loop-active {
+  stroke-dasharray: 7 5;
+  animation: dashFlow 800ms linear infinite;
+}
+
+.stage-node-active {
+  animation: stageGlow 1.6s ease-in-out infinite;
+}
+
+.packet-token-group {
+  transition: transform var(--anim-duration) cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.packet-token-core {
+  animation: packetPulse 1.4s ease-in-out infinite;
+}
+
+/* Reduced Motion: OS preference OR in-app toggle */
+@media (prefers-reduced-motion: reduce) {
+  .slide-enter,
+  .flow-edge-active,
+  .flow-loop-active,
+  .stage-node-active,
+  .packet-token-core {
+    animation: none !important;
+  }
+
+  .packet-token-group {
+    transition: none !important;
+  }
+}
+
+.reduced-motion .slide-enter,
+.reduced-motion .flow-edge-active,
+.reduced-motion .flow-loop-active,
+.reduced-motion .stage-node-active,
+.reduced-motion .packet-token-core {
+  animation: none !important;
+}
+
+.reduced-motion .packet-token-group {
+  transition: none !important;
+}
